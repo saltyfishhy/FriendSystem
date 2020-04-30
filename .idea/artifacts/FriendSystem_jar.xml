@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FriendSystem:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FriendSystem_jar</output-path>
+    <root id="archive" name="FriendSystem.jar">
+      <element id="module-output" name="FriendSystem" />
+    </root>
+  </artifact>
+</component>

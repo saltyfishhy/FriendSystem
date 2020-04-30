@@ -1,0 +1,17 @@
+main: me.saltyfishhy.friendSystem.Main
+name: FriendSystem
+version: 1.0.0
+author: saltyfishhy
+
+commands:
+  reply:
+    aliases: [r]
+    description: Lets a user respond to the last person they corresponded with
+  friend:
+    aliases: [f]
+    description: Lets a user send a friend request to / accpet a friend request from / view their friends.
+  unfriend:
+    description: Lets a user remove someone from their friends list
+  msg:
+    aliases: [tell]
+    description: Lets a user message somebody else
