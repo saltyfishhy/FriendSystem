@@ -1,5 +1,6 @@
 package me.saltyfishhy.friendSystem.Commands;
 
+import me.saltyfishhy.friendSystem.FileManager.FileManager;
 import me.saltyfishhy.friendSystem.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -27,6 +28,10 @@ public class Friend implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("friend")) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
+                if (!(p.hasPermission(Main.getInstance().getConfig().getString("friendPermission")))) {
+                    p.sendMessage(ChatColor.RED + "Friends > " + ChatColor.GRAY + "You do not have permission to execute this command.");
+                    return true;
+                }
                 if (args.length > 0) {
                     if (!args[0].equalsIgnoreCase("accept")) {
                         if (!args[0].equalsIgnoreCase("deny")) {
@@ -209,6 +214,10 @@ public class Friend implements CommandExecutor {
         else if (label.equalsIgnoreCase("unfriend")) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
+                if (!(p.hasPermission(Main.getInstance().getConfig().getString("friendPermission")))) {
+                    p.sendMessage(ChatColor.RED + "Friends > " + ChatColor.GRAY + "You do not have permission to execute this command.");
+                    return true;
+                }
                 if (args.length == 0) {
                     p.sendMessage(ChatColor.RED + "Friends > " + ChatColor.GRAY + "Please enter the person you would like to unfriend.");
                     return true;
@@ -251,6 +260,15 @@ public class Friend implements CommandExecutor {
                     p.sendMessage(ChatColor.RED + "Friends > " + ChatColor.GRAY + "You do not have a friend named " + ChatColor.RED + args[0]);
                     return true;
                 }
+            }
+        }
+        else if (cmd.getName().equalsIgnoreCase("freload")) {
+            if (sender.hasPermission("friend.admin")) {
+                Main.data.reloadConfig();
+                sender.sendMessage(ChatColor.RED + "Reload > " + ChatColor.GRAY + "Config reloaded.");
+            }
+            else {
+                sender.sendMessage(ChatColor.RED + "Reload > " + ChatColor.GRAY + "You do not have permission to execute this command.");
             }
         }
         return false;

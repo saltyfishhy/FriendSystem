@@ -26,6 +26,7 @@ public class Main extends JavaPlugin {
         getCommand("unfriend").setExecutor(new Friend());
         getCommand("msg").setExecutor(new R());
         getCommand("reply").setExecutor(new R());
+        getCommand("freload").setExecutor(new Friend());
         data.getConfig().options().copyDefaults(true);
         data.saveConfig();
     }

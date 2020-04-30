@@ -15,3 +15,6 @@ commands:
   msg:
     aliases: [tell]
     description: Lets a user message somebody else
+  freload:
+    aliases: [friendreload]
+    description: Lets an admin reload the config

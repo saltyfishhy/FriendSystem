@@ -20,6 +20,10 @@ public class R implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("msg")) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
+                if (!(p.hasPermission(Main.getInstance().getConfig().getString("friendPermission")))) {
+                    p.sendMessage(ChatColor.RED + "Message > " + ChatColor.GRAY + "You do not have permission to execute this command.");
+                    return true;
+                }
                 String uuid = p.getUniqueId().toString();
                 if (args.length == 0) {
                     p.sendMessage(ChatColor.RED + "Message > " + ChatColor.GRAY + "Proper usage: /msg (user) (message)");
@@ -61,6 +65,10 @@ public class R implements CommandExecutor {
         else if (cmd.getName().equalsIgnoreCase("reply")) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
+                if (!(p.hasPermission(Main.getInstance().getConfig().getString("friendPermission")))) {
+                    p.sendMessage(ChatColor.RED + "Friends > " + ChatColor.GRAY + "You do not have permission to execute this command.");
+                    return true;
+                }
                 if (respond.containsKey(p)) {
                     if (args.length < 1) {
                         p.sendMessage(ChatColor.RED + "Message > " + ChatColor.GRAY + "Proper usage: /r (message)");
