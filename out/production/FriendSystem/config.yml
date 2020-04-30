@@ -1,2 +1,3 @@
 requestTimeout: 300
 maxFriends: 50
+friendPermission: friend.use
