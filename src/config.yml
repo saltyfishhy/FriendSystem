@@ -1,3 +1,12 @@
 requestTimeout: 300
 maxFriends: 50
 friendPermission: friend.use
+
+useMySQL: false
+
+SQLHost: 'null'
+SQLPort: 3306
+SQLDatabase: 'null'
+SQLUsername: 'null'
+SQLPassword: 'null'
+SQLTable: 'null'

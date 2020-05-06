@@ -201,7 +201,12 @@ public class Friend implements CommandExecutor {
                     for (String s : Main.data.getConfig().getStringList("players." + uuid + ".friends")) {
                         OfflinePlayer p2 = Bukkit.getOfflinePlayer(UUID.fromString(s));
                         String name = p2.getName();
-                        p.sendMessage(name);
+                        if (p2.isOnline()) {
+                            p.sendMessage(name + ChatColor.GREEN + " - ONLINE");
+                        }
+                        else {
+                            p.sendMessage(name + ChatColor.RED + " - OFFLINE");
+                        }
                     }
                     p.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "" + ChatColor.STRIKETHROUGH + "=======================================");
                 }
